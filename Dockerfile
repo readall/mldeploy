@@ -40,3 +40,5 @@ RUN conda install pytorch torchvision torchaudio cpuonly -c pytorch \\
 
 # Set the default command to python3
 CMD ["python3"]
+# Give back control
+USER root
