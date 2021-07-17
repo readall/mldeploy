@@ -1,12 +1,16 @@
 FROM gitpod/workspace-full:latest
 
-# Install some basic utilities
-RUN apt-get update && apt-get install -y \
-    curl \
-    ca-certificates \
-    sudo \
-    git \
-    bzip2
+USER root
+# Install util tools.
+RUN apt-get update \
+ && apt-get install -y \
+  apt-utils \
+  sudo \
+  git \
+  less \
+  wget \
+  bzip2
+
 
 RUN rm -rf /var/lib/apt/lists/*
 
