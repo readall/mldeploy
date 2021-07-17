@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM gitpod/workspace-full:latest
 
 # Install some basic utilities
 RUN apt-get update && apt-get install -y \
