@@ -43,7 +43,7 @@ RUN conda install pytorch torchvision torchaudio cpuonly -c pytorch \
  && conda install -y -c conda-forge tensorflow \
  && conda install -y -c conda-forge keras \
  && conda install -y -c huggingface transformers \
- && conda install -y -c anaconda nltk
+ && conda install -y -c anaconda nltk \
  && conda install -y -c anaconda seaborn \
  && conda install -y -c conda-forge bokeh \
  && conda install -y -c plotly plotly \
