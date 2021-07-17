@@ -6,16 +6,17 @@ RUN apt-get update && apt-get install -y \
     ca-certificates \
     sudo \
     git \
-    bzip2 \
- && rm -rf /var/lib/apt/lists/*
+    bzip2
+
+RUN rm -rf /var/lib/apt/lists/*
 
 # Create a working directory
 RUN mkdir -p /workspace/app
 WORKDIR /workspace/app
 
 # Create a non-root user and switch to it
-RUN adduser --disabled-password --gecos '' --shell /bin/bash user \
- && chown -R user:user /app
+RUN adduser --disabled-password --gecos '' --shell /bin/bash user && \
+ chown -R user:user /app
 RUN echo "user ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/90-user
 USER user
 
@@ -26,12 +27,12 @@ RUN chmod 777 /home/user
 # Install Miniconda and Python 3.8
 ENV CONDA_AUTO_UPDATE_CONDA=false
 ENV PATH=/home/user/miniconda/bin:$PATH
-RUN curl -sLo ~/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
- && chmod +x ~/miniconda.sh \
- && ~/miniconda.sh -b -p ~/miniconda \
- && rm ~/miniconda.sh \
- && conda install -y python==3.8.8 \
- && conda clean -ya
+RUN curl -sLo ~/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
+ chmod +x ~/miniconda.sh && \
+ ~/miniconda.sh -b -p ~/miniconda && \
+ rm ~/miniconda.sh && \
+ conda install -y python==3.8.8 && \
+ conda clean -ya
 
 # No CUDA-specific steps
 ENV NO_CUDA=1
