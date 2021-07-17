@@ -35,10 +35,26 @@ RUN curl -sLo ~/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-late
 
 # No CUDA-specific steps
 ENV NO_CUDA=1
-RUN conda install pytorch torchvision torchaudio cpuonly -c pytorch \\
+RUN conda install pytorch torchvision torchaudio cpuonly -c pytorch \
+ && conda install -y pandas \
+ && conda install -y scikit-learn \ 
+ && conda install -y matplotlib \
+ && conda install -y -c conda-forge tensorflow \
+ && conda install -y -c conda-forge keras \
+ && conda install -y -c huggingface transformers \
+ && conda install -y -c anaconda nltk
+ && conda install -y -c anaconda seaborn \
+ && conda install -y -c conda-forge bokeh \
+ && conda install -y -c plotly plotly \
+ && conda install -y -c conda-forge sentencepiece \
+ && pip install -U datasets \
+ && pip install -U pip setuptools wheel \
+ && pip install -U spacy \
+ && pip install -U docx2python \
  && conda clean -ya
 
-# Set the default command to python3
-CMD ["python3"]
 # Give back control
 USER root
+# Set the default command to python3
+CMD ["python3"]
+
