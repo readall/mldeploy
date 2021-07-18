@@ -29,3 +29,6 @@ They are stored in /workspace/app/data/ folder. This is one level inside the per
 
 # Why is the image size so large ?
 I wanted a system where i have to do minimal steps and not wait for dependency resolution by conda everytime i replicate the environment.
+
+Docker container can be found here:
+https://hub.docker.com/repository/docker/llearnell/ubuntu-ml
