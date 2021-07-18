@@ -19,7 +19,7 @@ Includes following high level packages for CPU only
 
 
 # How to use
-docker run -it -v <persitent_location_on_disk>:/workspace/app llearnell/ubuntu-ml
+docker run -it -v **your_persitent_location_on_disk**:/workspace/app llearnell/ubuntu-ml
 Once the container is running, you will be provided with a /bin/bash prompt within /workspace/app directory
 All python environment already set.
 
